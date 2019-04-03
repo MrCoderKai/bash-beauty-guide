@@ -10,10 +10,11 @@ Describe: There are some other configurations that are not mentioned in this gui
 
 **Note: Even all configure files are provided, you should read this guide carefully.**
 
-1.
+1. **.bash_profile** - This file should under `~/`
+2. **.zshrc** - This file should under `~/`
 
 # Environment
-1. Macbokk Pro 2018
+1. Macbook Pro 2018
 2. OS version: macOS Mojave 10.14.4 (18E226)
 
 # Color Scheme for iTerm2
@@ -22,15 +23,15 @@ Describe: There are some other configurations that are not mentioned in this gui
 cd ~
 git clone https://github.com/altercation/solarized.git
 ```
-2. Open iTerm2, select `iTerm2->Preferences...->Profiles->Colors->Color Presets...->import`. Choose solarized color scheme from downloaded git respository. In this case, the path should be `~/solarized/iterm2-colors-solarized`.
+2. Open iTerm2, select `iTerm2->Preferences...->Profiles->Colors->Color Presets...->import`. Choose solarized color scheme from downloaded git respository, and find `iterm2-colors-solarized` folder. In this case, the path should be `~/solarized/iterm2-colors-solarized`.
 
 ## Issue
-After setting **solarized** as iTerm2 color scheme, the outputs of command `ls` can not mark file and directory as different colors. To solve this issue, please open iTerms, and select `iTerm2->Preferences...->Profiles->Colors`, uncheck **Bold** in **Basic Colors** region.
+After setting **solarized** as iTerm2 color scheme, the outputs of command `ls` can not distinguish file and directory by different colors. To solve this issue, please open iTerm2, and select `iTerm2->Preferences...->Profiles->Colors`, uncheck **Bold** in **Basic Colors** region.
 
 # Install zsh
-Zsh is a shell designed for interactive use, although it is also a powerful scripting language.
+**Zsh** is a shell designed for interactive use, although it is also a powerful scripting language.
 
-1. Check whether **zsh** is installed or not
+1. Check whether **zsh** has been installed or not
 
 `zsh --version`
 
@@ -55,7 +56,7 @@ exec /bin/zsh -l
 Then, **zsh** would be the default termianl.
 
 # Install MacVim
-In [vim-beauty-guide](https://github.com/MrCoderKai/vim-beauty-guide), YouCompleteMe plugin is install for auto completion. And error, which is discussed in [issue 3271](https://github.com/Valloric/YouCompleteMe/issues/3271). To avoid this error, **MacVim** should be installed.
+In [vim-beauty-guide](https://github.com/MrCoderKai/vim-beauty-guide), YouCompleteMe plugin is install for auto completion. And error, which is discussed in [issue 3271](https://github.com/Valloric/YouCompleteMe/issues/3271), will accur after setting **zsh** as the default terminal. To avoid this error, **MacVim** should be installed.
 
 1. Click [MacVim download link](https://macvim-dev.github.io/macvim/) to download **MacVim**;
 2. Double click **MacVim.dmg** to install **MacVim**.
@@ -65,8 +66,8 @@ In [vim-beauty-guide](https://github.com/MrCoderKai/vim-beauty-guide), YouComple
 alias vim='/Applications/MacVim.app/Contents/MacOS/Vim'
 alias vi='vim'
 ```
-5. The default editor of command `crontab` is `nano`, which would accur the same error, which is talked above. Thus, its editor should be replaced by **MacVim**, too.
-6. Add following configurations to **~/.bash_profile** to replace default editor of `crontab` by **MacVim**
+5. The default editor of command `crontab` is `nano`, which would accur the same error as **zsh**. Thus, its editor should be replaced by **MacVim**, too.
+6. Add following configurations to **~/.bash_profile** to replace default editor of `crontab` by **MacVim**.
 ```
 # set default editor for command `crontab -e`, if not, error accurs
 export EDITOR=/Applications/MacVim.app/Contents/MacOS/Vim
@@ -77,7 +78,7 @@ export EDITOR=/Applications/MacVim.app/Contents/MacOS/Vim
 **Powerline** Fonts should be installed before installing **oh-my-zsh**, otherwise, `?` will appear in **zsh** terminal.
 
 The guide to install **powerline** is as following:
-1. Install powerline fonts
+1. Download and install powerline fonts
 ```
 git clone https://github.com/powerline/fonts.git --depth=1
 cd fonts
@@ -86,10 +87,10 @@ cd ..
 rm -rf fonts
 ```
 
-2. Open iTerm2, select `iTerm2->Preferences...->Profiles->text`, find `Font` region, click `Change Font`, select `Monaco`, and check `Use a different font for non-ASCII text`, select `Monaco`.
+2. Configure **iTerm2** default fonts. Open iTerm2, select `iTerm2->Preferences...->Profiles->text`, find `Font` region, click `Change Font`, select `Monaco`, and check `Use a different font for non-ASCII text`, select `Monaco`.
 
 # oh-my-zsh
-Oh My Zsh is an open source, community-driven framework for managing your zsh configuration.
+Oh My Zsh is an open source, community-driven framework for managing your **zsh** configuration.
 ## Install oh-my-zsh
 1. `sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"`
 
@@ -119,7 +120,7 @@ POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(context dir rbenv vcs)
 POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status root_indicator background_jobs       time)
 ```
 ### Configuration III
-Set syntax highlight.
+Enable syntax highlight.
 
 1. Install `zsh-syntax-highlighting` plugin
 
@@ -136,7 +137,7 @@ plugins=(git
 Note: Plugin `zsh-syntax-highlighting` **MUST** be the latst one.
 
 ### Configuration IV
-Set command completion.
+Enable command completion.
 1. Install plugin `zsh-autosuggestion`
 ```
 cd ~/.oh-my-zsh/custom/plugins/
@@ -158,7 +159,7 @@ export ZSH=/Users/administrator/.oh-my-zsh
 source $ZSH/oh-my-zsh.s
 ```
 
-Note: `ZSH` should be your real path.
+**Note: `ZSH` should be your real path.**
 2. Exit editing `~/.zshrc` file. And execute `source ~/.zshrc` to activate **oh-my-zsh** plugin.
 
 # tmux
@@ -203,4 +204,15 @@ setw -g monitor-activity on
 
 # Shortcuts
 ## tmux
-1. 
+### In zsh Terminal
+1. `tmux new -s *session_name*` - Create a new tumx session with name
+2. `tmux list-session` or `tmux ls` - List all activated session of in tmux server
+3. `tmux a[ttach] -t *session_name*` - Attach to the specific session from terminal
+### In tmux
+1. `Ctrl+l` - Clear screen. **No Prefix.**
+Note: `Ctrl+k` is avoided to clear screen in tmux server, otherwise, screen will in chaos. However, `Ctrl+k` is allowed in terminal.
+2. `Prefix+Ctrl+l` - Select the last used window. **Prefix must be pressed**
+3. `Prefif+c` - Create new window in tmux server. **c is short for *create*.**
+4. `Prefix+n` - **N**ext window.
+5. `Prefix+p` - **P**revious window.
+6. `Prefix+number` - Select corresponding window marked by `number`.
