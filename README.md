@@ -10,8 +10,8 @@ Describe: There are some other configurations that are not mentioned in this gui
 
 **Note: Even all configure files are provided, you should read this guide carefully.**
 
-1. **.bash_profile** - This file should under `~/`
-2. **.zshrc** - This file should under `~/`
+1. **.bash_profile** - This file should under path `~/`
+2. **.zshrc** - This file should under path `~/`
 
 # Environment
 1. Macbook Pro 2018
