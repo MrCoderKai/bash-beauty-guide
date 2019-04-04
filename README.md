@@ -233,6 +233,7 @@ setw -g monitor-activity on
 2. `tmux list-session` or `tmux ls` - List all activated session of in tmux server
 3. `tmux a[ttach] -t *session_name*` - Attach to the specific session from terminal
 4. `tmux kill-session -t **session_name` - Kill session
+5. `tmux kill-server` - Kill all sessions
 ### In tmux
 1. `Ctrl+l` - Clear screen. **No Prefix.**
 Note: `Ctrl+k` is avoided to clear screen in tmux server, otherwise, screen will in chaos. However, `Ctrl+k` is allowed in terminal.
