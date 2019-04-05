@@ -242,3 +242,4 @@ Note: `Ctrl+k` is avoided to clear screen in tmux server, otherwise, screen will
 4. `Prefix+n` - **N**ext window.
 5. `Prefix+p` - **P**revious window.
 6. `Prefix+number` - Select corresponding window marked by `number`.
+7. `Prefix+[` - Mouse scroll mode. In this mode, you can use mouse to scroll screen. To exit mouse scroll mode, press `Esc` key.
