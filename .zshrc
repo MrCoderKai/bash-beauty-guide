@@ -5,7 +5,6 @@
 export TERM="xterm-256color"
 # Path to your oh-my-zsh installation.
 export ZSH="/Users/administrator/.oh-my-zsh"
-
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
@@ -122,8 +121,6 @@ alias vi='vim'
 # set default editor for command `crontab -e`, if not, error accurs
 export EDITOR=/Applications/MacVim.app/Contents/MacOS/Vim
 # export EDITOR=vim
-alias goal='ssh chengkai@39.107.75.198'
-alias goalr='ssh root@39.107.75.198'
 export CLICOLOR=1
 export LSCOLORS=GxFxCxDxBxegedabagaced
 # alias ctags if you used homebrew
